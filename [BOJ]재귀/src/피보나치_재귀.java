@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 /* 백준 10870
  * 피보나치수 5 재귀
  * 
@@ -9,7 +8,7 @@ import java.util.Scanner;
  * 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597
  * n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작성하시오.
  */
-
+//git test
 public class 피보나치_재귀 {
 
 	public static void main(String[] args) {
