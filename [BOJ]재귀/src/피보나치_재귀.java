@@ -30,7 +30,6 @@ public class 피보나치_재귀 {
 			return 1;
 		else {
 			return pibo(n-1)+pibo(n-2);
-			//return sum;
 		}
 			
 	}
