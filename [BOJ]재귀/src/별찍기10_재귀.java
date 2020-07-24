@@ -8,49 +8,56 @@
 import java.util.*;
 
 public class 별찍기10_재귀 {
-	static char arr[][];
+	static char arr[][] = new char[7000][7000];
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n;
-		int count =1 ;
+
 		while (true) {
 			System.out.print("N(3의 거듭제곱) : ");
 			n = sc.nextInt();
-			if (n % 3 != 0 || n>6561)
+			if (n % 3 != 0 || n > 6561)
 				System.out.println("n은 3의 거듭제곱수여야 합니다 혹은 수를 낮추세요");
 			else
 				break;
 		}
-		
-		char arr[][] = new char[n][n];		//동적할당
+
 		init();
-		
-		draw(0,0,n);
-		
+		draw(0, 0, n);
+
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				System.out.print(arr[i][j]);
+			}
+			System.out.println();
+		}
 	}
-	
-	/*--------------------------------------------------------*/ 
-	public static void init() { 			//초기화
-		for(int i =0; i<arr.length;i++)		//행.length
-			for(int j=0;j<arr[0].length;j++)	//열.length
+
+	/*--------------------------------------------------------*/
+	public static void init() { // 초기화
+		for (int i = 0; i < arr.length; i++) // 행.length
+			for (int j = 0; j < arr[0].length; j++) // 열.length
 				arr[i][j] = ' ';
 	}
-	
+
 	/*---------------------------------------------------*/
 	public static void draw(int x, int y, int n) {
-		if(n==0) {
-			arr[x][y] ='*';
-		}
-		
-		for(int i =0;i<3;i++)
-			for(int j=0;j<3;j++) {
-				if(i==1&&j==1)	//가운데 구멍
-					continue;
-				
-				draw(x+(n/3)*i,y+(n/3)*j,n/3);
+		if (n == 1) {
+			arr[x][y] = '*';
+		} else {
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					if (i == 1 && j == 1) // 가운데 구멍
+						continue;
+
+					draw(x + (n / 3) * i, y + (n / 3) * j, n / 3);
+				}
 			}
-	}// * * *
-	 // *   *
-	 // * * *
+		}
+	}
+	// * * *
+	// * *
+	// * * *
 
 }
