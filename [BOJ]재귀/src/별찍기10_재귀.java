@@ -5,12 +5,21 @@
  * 
  * ¹è¿­·Î Ç®ÀÌ, 3^8 = 6561;
  */
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Scanner;
 
 public class º°Âï±â10_Àç±Í {
 	static char arr[][] = new char[7000][7000];
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
 		Scanner sc = new Scanner(System.in);
 		int n;
 
@@ -28,10 +37,13 @@ public class º°Âï±â10_Àç±Í {
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				System.out.print(arr[i][j]);
+				bw.write(arr[i][j]);
 			}
-			System.out.println();
+			bw.newLine();;
 		}
+		
+		bw.flush();
+		bw.close();
 	}
 
 	/*--------------------------------------------------------*/
@@ -57,7 +69,7 @@ public class º°Âï±â10_Àç±Í {
 		}
 	}
 	// * * *
-	// * *
+	// *   *
 	// * * *
 
 }
