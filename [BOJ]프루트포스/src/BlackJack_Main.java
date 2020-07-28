@@ -44,18 +44,6 @@ public class BlackJack_Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int card[] = new int[n];
 		
-		//Random rd = new Random();
-		/*for(int i:card) {
-			card[i] = rd.nextInt(m/3+3);
-			System.out.print(card[i]+" ");
-		}
-		for(int i=0;i<card.length;i++) {
-			card[i] = rd.nextInt(m/3+3);
-			System.out.print(card[i]+" ");
-		}
-		System.out.println();
-		*/
-		
 		String input[] = br.readLine().split(" ");
 		
 		for(int i=0;i<card.length;i++) {
@@ -69,21 +57,15 @@ public class BlackJack_Main {
 		
 		int max = 0;
 		
-		for(int i=0;i<n;i++) {
-			for(int j=0;j<n;j++) {
-				if(j==i)
-					j++;
-				for(int k=0;k<n;k++) {
-					if(k==i&&k==j)
-						k++;
-					else if(max<card[i]+card[j]+card[k] && card[i]+card[j]+card[k]<=m ) {
+		for(int i=0;i<n-2;i++) {
+			for(int j=i+1;j<n-1;j++) {
+				for(int k=j+1;k<n;k++) {
+					if(max<card[i]+card[j]+card[k] && card[i]+card[j]+card[k]<=m ) {
 						max = card[i]+card[j]+card[k];
-						System.out.println(card[i]+" "+card[j]+" "+card[k]);
 					}
 				}
 			}
 		}
 		System.out.println(max);
-		
 	}
 }
