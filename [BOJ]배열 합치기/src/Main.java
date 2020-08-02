@@ -30,26 +30,37 @@ public class Main {
 		int B[] = new int [b];
 		for(int i=0;i<A.length;i++) {
 			A[i] = Integer.parseInt(input[i]);
+		}
+		for(int i=0;i<B.length;i++) {
 			B[i] = Integer.parseInt(input1[i]);
 		}
-		
 		int C[] = new int [a+b];
-		
-		for(int i=0;i<a;i++) {
-			C[i]=A[i];
-		}
+		int i=0,j=0;
+		for(int z=0;z<a+b;z++) {
 			
-		
-		for(int i=0;i<b;i++) {
-			C[i+a]=B[i];
-		}
-		
-		Arrays.sort(C);
-		
-		for(int i=0; i < a+b ;i++) {
-			System.out.print(C[i]+" ");
-		}
+			//A[] 이 모두 빠졌을때
+			if(i>=a) {
+				C[z]=B[j];
+				j++;
+			}
+			//B[] 이 모두 빠졌을때
+			else if(j>=b){
+				C[z]=A[i];
+				i++;
+			}
 			
+			else if(A[i]<B[j]) {
+				C[z]=A[i];
+				i++;
+			}
+			else if(A[i]>B[j]) {
+				C[z]=B[j];
+				j++;
+			}
+		}
+		
+		for(int c=0;c<C.length;c++)
+			System.out.print(C[c]+" ");
 	}
 
 }
