@@ -62,7 +62,7 @@ public class 양배추_dfs_bfs {
 
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < m; j++) {
-					if (map[i][j] == 1 && visit[i][i]!= true  ) {
+					if (map[i][j] == 1 && visit[i][j]!= true  ) {
 						dfs(i, j);	//배추수확(인근배추 제거) ->상하좌우 인접 방문
 						count++;
 					}
