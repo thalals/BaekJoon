@@ -43,7 +43,7 @@ public class N_and_M2_Main {
 		for(int i=0;i<n;i++) {
 			if(visit[i]==false) {
 				visit[i]=true;
-				a[i]=i+1;
+				a[count]=i+1;
 				solve(count+1);
 				//visit[i]=false;
 			}
