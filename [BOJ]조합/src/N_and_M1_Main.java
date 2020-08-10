@@ -14,41 +14,43 @@ import java.util.Arrays;
  * 
  */
 public class N_and_M1_Main {
-	private static boolean visit[][];
-	private static int map[][];
+	private static boolean visit[];
 	private static int n;
 	private static int m;
-	
+	private static int a[];
+	//Main
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str[] = br.readLine().split(" ");
 		n = Integer.parseInt(str[0]);
 		m = Integer.parseInt(str[1]);
 		
-		visit = new boolean[n+1][n+1];
-		map = new int[n+1][n+1];
+		visit = new boolean[n];
+		a = new int[m];
 		
-		
-		
-		for(int i=1;i<=n;i++) {
-			for(int k=0;k<n+1;k++) {
-				Arrays.fill(visit[k], false);
-			
-				dfs(i,k);
-			}
-		}
+		Arrays.fill(visit, false);
+		solve(0);
 	}
 	
-	private static void dfs(int x,int y) {
-		
-		for(int i=0;i<=n;i++) {
-			visit[x][i] = true;
+	//Solve
+	public static void solve(int count) {
+		//종료조건 -출력
+		if(count==m) {
+			for(int i=0;i<m;i++)
+				System.out.print(a[i]+" ");
+			System.out.println();
+			
+			return;
 		}
 		
-		
-		if(visit[x+1][y+1]!=true && x<n && y<n) {
-			dfs(x+1,y+1);
-			System.out.print(y+" ");
+		for(int i=0;i<n;i++) {
+			if(visit[i]==false) {
+				visit[i]=true;
+				a[count]=i+1;
+				solve(count+1);
+				visit[i]=false;
+			}
+				
 		}
 		
 		
