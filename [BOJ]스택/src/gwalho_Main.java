@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /* น้มุ 9012น๘
  * 
@@ -21,7 +22,8 @@ import java.util.ArrayList;
  */
 public class gwalho_Main {
 	static int testCase;
-	static ArrayList<Integer> numbers ;
+	static Stack<String> numbers ;
+	static String result[];
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,15 +31,31 @@ public class gwalho_Main {
 		
 		for(int i=0;i<testCase;i++) {
 			String str[] = br.readLine().split("");
-			
+			if(vps_check(str))
+				System.out.println("YES");
+			else
+				System.out.println("NO");
 		}
 	}
 	
-	static void vps_check(String str[]) {
-		numbers = new ArrayList<>();
+	static boolean vps_check(String str[]) {
+		numbers = new Stack<>();
 		for(int i=0;i<str.length;i++) {
-			if(str.)
+			if(str[i].equals("(")) {
+				numbers.add(str[i]);
+			}
+			else {
+				if(numbers.size()==0)
+					return false;
+				numbers.pop();
+			}
 		}
+		
+		if(numbers.isEmpty())
+			return true;
+		else
+			return false;
 	}
+
 
 }
